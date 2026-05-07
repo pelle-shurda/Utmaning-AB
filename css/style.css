@@ -70,7 +70,7 @@ header {
 }
 
 .right-links { 
-    right: 23%; 
+    right: 7%; 
 }
 
 .meny-box {
@@ -98,6 +98,19 @@ header {
 
 .linkOmoss:hover, .linkHandla:hover, .linkKontakt:hover, .dropdown:hover .linkMeny {
     transform: scale(1.1);
+}
+
+.linkKonto {
+    color: white;
+    font-size: 1.8rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+    margin-left: 7rem;
+}
+
+.linkKonto:hover {
+    transform: scale(1.1);
+    color: rgba(203,155,53,1);
 }
 
 /* dropdown i headern */
