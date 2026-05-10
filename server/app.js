@@ -47,6 +47,37 @@ app.post('/api/register', async (req, res) => {
     );
 });
 
+// inloggning
+app.post('/api/login', (req, res) => {
+    const { email, password } = req.body;
+
+    // hämta användaren från databasen med email
+    db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results) => {
+        if (err || results.length === 0) {
+            return res.json({ success: false, message: 'Fel e-post eller lösenord' });
+        }
+
+        const user = results[0];
+
+        // jämför lösenordet med det hashade lösenordet i databasen
+        const correctPassword = await bcrypt.compare(password, user.password);
+
+        if (!correctPassword) {
+            return res.json({ success: false, message: 'Fel e-post eller lösenord' });
+        }
+
+        // sparar användarens id i sin session
+        req.session.user = {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            admin: user.is_admin
+        };
+
+        res.json({ success: true, user: req.session.user });
+    });
+});
+
 server.listen(3000, () => {
     console.log('Server körs på http://localhost:3000');
 });

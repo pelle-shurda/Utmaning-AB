@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrera - Nora Deli & Catering</title>
+    <title>Nora Deli & Catering</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/script.js"></script>
     <script src="/js/account.js"></script>
@@ -36,29 +36,23 @@
         </div>
     </header>
 
-    <main class="register-main">
-        <div class="register-container">
-            <h1>Skapa konto</h1>
+    <h1 class="scroll-fade account-heading">Skapa konto</h1>
+    <p class="header-desc scroll-fade">Redan medlem? <a href="/pages/login.html">Logga in här</a></p>
 
-            <div id="error-msg" class="error-msg" style="display:none"></div>
+    <div class="formulär">
+        <div id="error-msg" class="error-msg" style="display:none"></div>
 
-            <div class="register-form">
-                <div class="form-group">
-                    <label>Namn:</label>
-                    <input type="text" id="name" placeholder="Ditt namn">
-                </div>
-                <div class="form-group">
-                    <label>E-post:</label>
-                    <input type="email" id="email" placeholder="din@email.com">
-                </div>
-                <div class="form-group">
-                    <label>Lösenord:</label>
-                    <input type="password" id="password" placeholder="Minst 6 tecken">
-                </div>
-                <button onclick="register()" class="register-btn">Skapa konto</button>
-            </div>
-        </div>
-    </main>
+        <label>Namn:</label>
+        <input type="text" id="name" placeholder="Ditt namn">
+
+        <label>E-post:</label>
+        <input type="email" id="email" placeholder="din@email.com">
+
+        <label>Lösenord:</label>
+        <input type="password" id="password" placeholder="Minst 6 tecken">
+
+        <button onclick="register()">Skapa konto</button>
+    </div>
 
     <footer class="footer">
         <div class="footer-container">

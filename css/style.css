@@ -294,6 +294,10 @@ header {
     line-height: 1.6;
 }
 
+.account-heading {
+    margin-bottom: 0.5rem;
+}
+
 /* scroll animationer */
 .scroll-fade {
     opacity: 0;
@@ -462,6 +466,57 @@ header {
     transform: rotate(180deg);
 }
 
+/* Formulär, både kontakt och register */
+.formulär {
+    max-width: 37.5rem;
+    margin: 2.75rem auto;
+    padding: 2.5rem;
+    background-color: #f7f7f7;
+    border-radius: 0.625rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: "fontWide";
+}
+
+.formulär input,
+.formulär textarea {
+    width: 100%;
+    padding: 0.625rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: "Regular";
+    font-size: 0.875rem;
+    resize: none;
+}
+
+.formulär button {
+    background-color: black;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: "fontWide";
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulär button:hover {
+    background-color: rgba(203,155,53,1);
+    color: black;
+}
+
+.error-msg {
+    background-color: #ffdcdc;
+    color: #c03a2c;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: "Regular";
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
 /* Footer */
 .flowers-footer {
     width: 100%;
@@ -571,46 +626,6 @@ header {
     border: 0;
 }
 
-/* Kontaktformulär */
-#kontaktFormulär {
-    max-width: 37.5rem;
-    margin: 2.75rem auto;
-    padding: 2.5rem;
-    background-color: #f7f7f7;
-    border-radius: 0.625rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: "fontWide";
-}
-
-#kontaktFormulär input,
-#kontaktFormulär textarea {
-    width: 100%;
-    padding: 0.625rem;
-    margin-bottom: 1.25rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-family: "Regular";
-    font-size: 0.875rem;
-    resize: none;
-}
-
-#kontaktFormulär button {
-    background-color: black;
-    color: white;
-    padding: 0.75rem 1.25rem;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-family: "fontWide";
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#kontaktFormulär button:hover {
-    background-color: rgba(203,155,53,1);
-    color: black;
-}
-
 @media (max-width: 768px) { /* Jag försökte mig på mobilanpassning, men lyckades inte komma så mycket längre än såhär tyvärr (speciellt med tanke på redan försening av inlämning). :( */
     body, html {
         width: 100%;
@@ -682,7 +697,7 @@ header {
         font-size: 1rem;
     }
 
-    #kontaktFormulär {
+    .formulär {
         padding: 3rem;
         margin: 5rem;
     }
