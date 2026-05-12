@@ -78,6 +78,15 @@ app.post('/api/login', (req, res) => {
     });
 });
 
+// kollar om användaren är inloggad
+app.get('/api/user-check', (req, res) => {
+    if (req.session.user) {
+        res.json({ loggedIn: true, user: req.session.user });
+    } else {
+        res.json({ loggedIn: false });
+    }
+});
+
 server.listen(3000, () => {
     console.log('Server körs på http://localhost:3000');
 });

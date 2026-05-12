@@ -36,3 +36,16 @@ async function login() {
         document.getElementById('error-msg').textContent = data.message;
     }
 }
+
+// inloggningsstatus och ändrar ikon-knappen
+async function checkLogin() {
+    const response = await fetch('/api/user-check');
+    const data = await response.json();
+
+    const icon = document.querySelector('.linkKonto');
+    if (icon && data.loggedIn) {
+        icon.href = '/pages/profile.html';
+    }
+}
+
+checkLogin();
