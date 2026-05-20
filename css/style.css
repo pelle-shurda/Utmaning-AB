@@ -506,6 +506,10 @@ header {
     color: black;
 }
 
+.profil-formulär .profil-info {
+    margin-top: -1rem;
+}
+
 .error-msg {
     background-color: #ffdcdc;
     color: #c03a2c;
@@ -701,6 +705,8 @@ header {
         padding: 3rem;
         margin: 5rem;
     }
+
+
 
     .order-button {
         width: 30%;

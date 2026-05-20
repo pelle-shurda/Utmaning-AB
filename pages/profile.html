@@ -36,8 +36,26 @@
         </div>
     </header>
 
-    <h1 class="scroll-fade account-heading">Mitt konto</h1>
-    <p class="header-desc scroll-fade">hej</p>
+    <h1 class="scroll-fade account-heading" id="profil-rubrik"></h1>
+    <p class="header-desc scroll-fade">Välkommen till din profil!</p>
+
+    <div class="formulär profil-formulär">
+        <div class="profil-info">
+            <p><strong>Namn:</strong> <span class="font-regular" id="profil-namn"></span></p>
+            <p><strong>E-post:</strong> <span class="font-regular" id="profil-email"></span></p>
+        </div>
+
+        <hr>
+
+        <h3>Mina favoriter</h3>
+        <div id="favoriter-lista">
+            <p class="font-regular">Du har inga favoriter ännu.</p>
+        </div>
+
+        <hr>
+
+        <button onclick="logout()">Logga ut</button>
+    </div>
 
     <footer class="footer">
         <div class="footer-container">

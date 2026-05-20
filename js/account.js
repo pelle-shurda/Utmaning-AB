@@ -49,3 +49,30 @@ async function checkLogin() {
 }
 
 checkLogin();
+
+// hämtar och visar användarens info på profilsidan
+async function loadProfile() {
+    const response = await fetch('/api/user-check');
+    const data = await response.json();
+
+    if (!data.loggedIn) {
+        window.location.href = '/pages/login.html';
+        return;
+    }
+
+    // sätter användarens namn som rubrik och visar emailet och namnet i profilen
+    document.getElementById('profil-rubrik').textContent = data.user.name;
+    document.getElementById('profil-email').textContent = data.user.email;
+    document.getElementById('profil-namn').textContent = data.user.name;
+}
+
+// logga ut
+async function logout() {
+    await fetch('/api/logout', { method: 'POST' });
+    window.location.href = '/index.html';
+}
+
+// kör loadProfile om man är inne på profilsidan
+if (window.location.pathname.includes('profile')) {
+    loadProfile();
+}

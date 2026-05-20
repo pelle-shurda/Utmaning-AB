@@ -87,6 +87,12 @@ app.get('/api/user-check', (req, res) => {
     }
 });
 
+// logga ut
+app.post('/api/logout', (req, res) => {
+    req.session.destroy();
+    res.json({ success: true });
+});
+
 server.listen(3000, () => {
     console.log('Server körs på http://localhost:3000');
 });
