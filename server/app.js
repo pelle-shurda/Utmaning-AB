@@ -93,6 +93,40 @@ app.post('/api/logout', (req, res) => {
     res.json({ success: true });
 });
 
+// lägger till favorit
+app.post('/api/favorites/add', (req, res) => {
+    const { itemId } = req.body;
+
+    // kollar så att användaren är inloggad
+    if (!req.session.user) {
+        return res.json({ success: false, message: 'Du behöver vara inloggad' });
+    }
+
+    const userId = req.session.user.id;
+
+    db.query('INSERT IGNORE INTO favorites (user_id, menu_item_id) VALUES (?, ?)', [userId, itemId], (err) => {
+        if (err) return res.json({ success: false });
+        res.json({ success: true });
+    });
+});
+
+// tar bort favorit
+app.post('/api/favorites/remove', (req, res) => {
+    const { itemId } = req.body;
+
+    // kollar så att användaren är inloggad
+    if (!req.session.user) {
+        return res.json({ success: false, message: 'Du behöver vara inloggad' });
+    }
+
+    const userId = req.session.user.id;
+
+    db.query('DELETE FROM favorites WHERE user_id = ? AND menu_item_id = ?', [userId, itemId], (err) => {
+        if (err) return res.json({ success: false });
+        res.json({ success: true });
+    });
+});
+
 server.listen(3000, () => {
     console.log('Server körs på http://localhost:3000');
 });

@@ -374,6 +374,30 @@ header {
     text-align: center;
 }
 
+.photo-box {
+    position: relative;
+    display: inline-block;
+}
+
+.heart-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    transition: color 0.2s ease;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.heart-icon:hover {
+    color: black
+}
+
+.heart-icon.favorite {
+    color: black;
+}
+
 /* catering menyn */
 
 .cateringTabell {

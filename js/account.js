@@ -76,3 +76,45 @@ async function logout() {
 if (window.location.pathname.includes('profile')) {
     loadProfile();
 }
+
+// klick på favorit-knappen 
+async function toggleFavorite(icon) {
+    const box = icon.closest('.deliMeny-box');
+    const itemId = box.dataset.id;
+
+    const response = await fetch('/api/user-check');
+    const data = await response.json();
+
+    // man skickas till login om inte inloggad
+    if (!data.loggedIn) {
+        window.location.href = '/pages/login.html';
+        return;
+    }
+
+    // check om den redan är favorit
+    if (icon.classList.contains('favorite')) {
+        await fetch('/api/favorites/remove', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ itemId })
+        });
+        icon.classList.remove('favorite');
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+    } else {
+        //lägger till som favorit
+        await fetch('/api/favorites/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ itemId })
+        });
+        icon.classList.add('favorite');
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid');
+    }
+}
+
+// läser av när man klickar på hjärta-ikonen och kör toggleFavorite
+document.querySelectorAll('.heart-icon').forEach(icon => {
+    icon.addEventListener('click', () => toggleFavorite(icon));
+});
